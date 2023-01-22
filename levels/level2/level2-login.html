@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ישראל ישראלי – תיק עבודות אישי</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" id="google-fonts-1-css"
+        href="https://fonts.googleapis.com/css?family=Heebo%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CAssistant%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CSatisfy%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;display=auto&amp;subset=hebrew&amp;ver=6.1.1"
+        media="all">
+    <style>
+
+        /* main */
+
+        :root {
+            direction: rtl;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #333;
+            background-color: #fff;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h3 {
+            font-size: 35px;
+            font-family: "Assistant", Sans-serif;
+            font-size: 35px;
+        }
+
+        p,
+        .btn {
+            font-family: "Heebo", Sans-serif;
+            font-size: 18px;
+            font-weight: 200;
+        }
+
+        .btn {
+            background-color: #1ae0ec;
+            color: black;
+            width: 100px;
+            border: 0 !important;
+            border-radius: 0;
+            font-weight: 800;
+            margin-bottom: 3%;
+        }
+
+        a {
+            color: black;
+        }
+
+        label {
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .col {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* .header */
+
+        #chosen-link {
+            color: #1AE0EC;
+        }
+
+        .header {
+            background-color: #fff;
+            box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, .1);
+            position: fixed;
+            width: 100%;
+            z-index: 3;
+        }
+
+        .header ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            overflow: hidden;
+            background-color: #fff;
+        }
+
+        .header li a {
+            display: block;
+            padding: 20px 20px;
+            text-decoration: none;
+            font-size: 1.3em;
+        }
+
+        /* .header .menu */
+
+        .header .menu {
+            clear: both;
+            max-height: 0;
+            transition: max-height .2s ease-out;
+        }
+
+        /* Links inside the navbar */
+        .navbar {
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        .navbar a {
+            float: left;
+            font-size: 16px;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        /* The dropdown container */
+        .dropdown {
+            display: block;
+        }
+
+        /* Dropdown button */
+        .dropdown .dropbtn {
+            font-size: 16px;
+            border: none;
+            outline: none;
+            padding: 14px 16px;
+            background-color: inherit;
+            font-family: inherit;
+            /* Important for vertical align on mobile phones */
+            margin: 0;
+            /* Important for vertical align on mobile phones */
+        }
+
+        /* Dropdown content (hidden by default) */
+        .dropdown-content {
+            display: none;
+            position: fixed;
+            top: 50px;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 5;
+        }
+        @media only screen and (max-width: 700px) {
+            .dropdown-content {
+                position: fixed !important;
+                right: 70px !important;
+            }
+        }
+
+        /* Links inside the dropdown */
+        .dropdown-content a {
+            /* position: relative; */
+            bottom:0.5;
+            top:0;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            text-align: right;
+        }
+
+        .dropdown a:hover {
+            display: block;
+        }
+
+        /* Show the dropdown menu on hover */
+        .dropdown:hover .dropdown-content {
+            display: block !important;
+        }
+
+        /* .header menu-icon */
+
+        .header .menu-icon {
+            cursor: pointer;
+            display: inline-block;
+            float: left;
+            padding: 28px 20px;
+            position: relative;
+            user-select: none;
+        }
+
+        .header .menu-icon .navicon {
+            background: #333;
+            display: block;
+            height: 2px;
+            position: relative;
+            transition: background .2s ease-out;
+            width: 18px;
+        }
+
+        .header .menu-icon .navicon:before,
+        .header .menu-icon .navicon:after {
+            background: #333;
+            content: '';
+            display: block;
+            height: 100%;
+            position: absolute;
+            transition: all .2s ease-out;
+            width: 100%;
+        }
+
+        .header .menu-icon .navicon:before {
+            top: 5px;
+        }
+
+        .header .menu-icon .navicon:after {
+            top: -5px;
+        }
+
+        /* .heder menu-btn */
+
+        .header .menu-btn {
+            display: none;
+        }
+
+        .header .menu-btn:checked~.menu {
+            max-height: 240px;
+        }
+
+        .header .menu-btn:checked~.menu-icon .navicon {
+            background: transparent;
+        }
+
+        .header .menu-btn:checked~.menu-icon .navicon:before {
+            transform: rotate(-45deg);
+        }
+
+        .header .menu-btn:checked~.menu-icon .navicon:after {
+            transform: rotate(45deg);
+        }
+
+        .header .menu-btn:checked~.menu-icon:not(.steps) .navicon:before,
+        .header .menu-btn:checked~.menu-icon:not(.steps) .navicon:after {
+            top: 0;
+        }
+
+        /* .header-logos */
+
+        .header-logos {
+            background-color: #fff;
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: center;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(192, 192, 192, 0.373);
+        }
+
+        .header-logos>img {
+            width: 5%;
+            margin-bottom: -20px;
+        }
+
+        /* .header-middle */
+
+        .header-middle,
+        .form-section {
+            position: relative;
+            height: auto;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            padding: 0;
+            background-color: #1AE0EC;
+            opacity: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header-middle::before,
+        .form-section::before {
+            content: "";
+            background-image: url("https://projects-place.com/wp-content/uploads/2023/01/BG-Main-scaled.jpeg");
+            background-size: cover;
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            bottom: 0px;
+            left: 0px;
+            opacity: 0.6;
+        }
+
+        .header-middle>h1,
+        .header-middle>p,
+        .form-section>div>h1,
+        .form-section>div>p,
+        .form-section>form {
+            position: relative;
+            color: black;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .header-middle>h1 {
+            margin-top: 100px;
+            font-size: 4rem;
+        }
+
+        @media (min-width: 48em) {
+            .header li {
+                float: right;
+            }
+
+            .header li a {
+                padding: 20px 30px;
+            }
+
+            .header li a:hover {
+                transform: scale(1.3);
+                transition: 0.3s;
+            }
+
+            .header .menu {
+                clear: none;
+                float: right;
+                max-height: none;
+            }
+
+            .header .menu-icon {
+                display: none;
+            }
+        }
+
+        #header-middle-container {
+            padding: 6%;
+        }
+
+        /* header logo */
+
+        .header .logo {
+            font-weight: bolder;
+            padding: 10px;
+            margin-right: 18vw;
+            display: block;
+            float: right;
+            font-size: 1.5em;
+            padding: 10px 20px;
+            text-decoration: none;
+        }
+
+        .header .logo>img {
+            margin-left: 20px;
+            border-radius: 50px;
+            height: 50px;
+        }
+
+        .header .logo>p {
+            margin-right: 75px;
+        }
+
+        .header .logo>img:hover {
+            transform: scale(1.25);
+            transition: 0.3s;
+        }
+
+        /* final project */
+
+        .final-project-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 60%;
+            margin: auto;
+        }
+
+        .final-project-container>img {
+            width: 100%;
+            height: auto;
+            box-shadow: 0 0 30px gray;
+            transition: 0.3s;
+        }
+
+        .final-project-container>img:hover, .btn-download:hover {
+            transition: 0.3s;
+            transform: scale(0.95);
+        }
+
+        .final-project-container>img,
+        .final-project-container>p,
+        .final-project-container>h1 {
+            margin-bottom: 3%;
+        }
+
+        .final-project-container>button {
+            margin-bottom: 7%;
+        }
+
+        .final-project-container>p {
+            width: 85%;
+        }
+
+        /* form-section */
+
+        .form-control {
+            border-width: 0px 0px 1px 0px !important;
+            border-radius: 0;
+            border-color: black;
+            font-weight: 400;
+            margin-bottom: 3%;
+        }
+
+        .form-section>p,
+        .form-section>h1,
+        .form-section>form {
+            margin-left: 20%;
+            text-align: right !important;
+        }
+
+        .contact-form {
+            width: 30%;
+        }
+
+        .form-section-details {
+            width: 35%;
+            margin-left: 15%;
+
+        }
+
+        .form-section-details>p,
+        .form-section-details>h1 {
+            text-align: right !important;
+
+        }
+
+        /* footer logos*/
+
+        .footer-logos>p {
+            color: rgb(255, 255, 255);
+            font-weight:400;
+        }
+
+        .footer-logos {
+            display: flex;
+            padding: 1.5% 1.5%;
+            flex-direction: column;
+            align-items: center;
+            align-self: flex-end;
+        }
+        
+        .footer-logos > img {
+            width: auto;
+        }
+
+
+        .footer-logos-container {
+            background-color: #383838;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* footer-bottom-container*/
+
+        .footer-bottom-container {
+            background-color: #252525;
+            color: #eeeeee;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            padding: 5px;
+        }
+
+        .footer-bottom-container > p {
+            font-size: 1.2rem;
+            font-weight: 400;
+        }
+
+        /* demo*/
+        .demo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            margin:auto;
+            padding:5%;
+            background-color: #f3f3f3;
+        }
+        
+        .demo > img {
+            box-shadow: 0 0 30px gray;
+            width:70%;
+            margin-bottom: 10%;
+        }
+    </style>
+</head>
+
+<!-- header -->
+<header class="header">
+    <a href="../../index.html" class="logo">
+        <img
+            src="https://projects-place.com/wp-content/uploads/elementor/thumbs/Gal-q0taysryzjubu5kch1npg4xdbhoke3ctdwg31ezmrk.jpg">
+        גל לביא
+    </a>
+    <input class="menu-btn" type="checkbox" id="menu-btn" />
+    <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+    <ul class="menu">
+        <li><a href="../level1/level1.html">שלב 1</a></li>
+        <li class="dropdown"><a id="chosen-link" href="#">שלב 2 &#8595;</a>
+            <div class="dropdown-content">
+                <ul>
+                    <li><a href="#">מערכת התחברות</a></li><br>
+                    <li><a href="level2-math.html">לומדה לחשבון</a></li><br>
+                    <li><a href="level2-builder.html">בונה מסמכים</a></li><br>
+                </ul>
+            </div>
+        </li>
+        <li><a href="../level3/level3.html">שלב 3</a></li>
+    </ul>
+</header>
+
+<!-- header middle -->
+<section>
+    <div class="header-middle" id="header-middle-container">
+        <h1>מערכת התחברות</h1>
+        <p>
+            ורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית לפרומי בלוף קינץ תתיח לרעח. לת צשחמי צש בליא, מנסוטו צמלח לביקו ננבי, צמוקו בלוקריה.
+        </p>
+        <span id="download">להורדת הפרוייקט<img src="../../assets/cloud.png" /></span>
+    </div>
+</section>
+
+<!-- logos -->
+<section class="header-logos">
+    <img
+        src="https://projects-place.com/wp-content/uploads/elementor/thumbs/Group-145-2-q0rcy15iud3udqbma93p8diurvrb9foe9b27dciiv4.png" />
+    <img
+        src="https://projects-place.com/wp-content/uploads/elementor/thumbs/Group-146-2-q0rcy15iud3udqbma93p8diurvrb9foe9b27dciiv4.png" />
+    <img
+        src="https://projects-place.com/wp-content/uploads/elementor/thumbs/Group-148-2-q0rcy15iud3udqbma93p8diurvrb9foe9b27dciiv4.png" />
+    <img
+        src="https://projects-place.com/wp-content/uploads/elementor/thumbs/Group-156-q0rd8j0n5rh40z2qzsfq2q65ks0v7rchp9beaky9ds.png" />
+</section>
+
+<!-- body -->
+
+<body>
+
+    <!-- login demo -->
+
+    <section>
+        <div class="demo">
+            <img src="https://projects-place.com/wp-content/uploads/2023/01/Play-Center-Game-%E2%80%93-5.png" />
+        </div>
+    </section>
+
+    <!-- צור קשר -->
+    <section class="header-middle">
+        <div class="form-section">
+            <div class="form-section-details">
+                <h1>צור קשר</h1>
+                <p>
+                    לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית לפרומי בלוף קינץ תתיח לרעח. לת צשחמי צש בליא,
+                    מנסוטו צמלח
+                    לביקן.
+                </p>
+            </div>
+            <form class="col contact-form">
+
+                <div class="col">
+                    <label for="name">שם</label>
+                    <input type="text" class="form-control" id="name" name="name" />
+                </div>
+
+                <div class="col">
+                    <label for="email">אימייל</label>
+                    <input type="email" class="form-control" id="email" />
+                </div>
+
+                <div class="col">
+                    <label for="phone">טלפון</label>
+                    <input type="phone" class="form-control" id="phone" />
+                </div>
+
+                <div class="col">
+                    <label for="form-message" content>הודעה</label>
+                    <textarea id="form-message" class="form-control" name="form-message" rows="5"></textarea>
+                </div>
+
+                <button type="button" class="btn btn-primary">שליחה</button>
+
+            </form>
+    </section>
+
+</body>
+
+<!-- footer -->
+
+<footer>
+
+    <!-- footer-logos-container -->
+
+    <section>
+        <div class="footer-logos-container">
+            <div class="footer-logos">
+                <img src="../../assets/footer-icons/facebook.png" />
+                <p>IsraelIsrael#</p>
+            </div>
+            <div class="footer-logos">
+                <img src="../../assets/footer-icons/linkedin.png" />
+                <p>IsraelIsrael#</p>
+            </div>
+            <div class="footer-logos">
+                <img src="../../assets/footer-icons/phone.png" />
+                <p>053-3030306</p>
+            </div>
+            <div class="footer-logos">
+                <img src="../../assets/footer-icons/whatsapp.png" />
+                <p>053-3030306</p>
+            </div>
+            <div class="footer-logos">
+                <img src="../../assets/footer-icons/email.png" />
+                <p>israel@gmail.com</p>
+            </div>
+            <div class="footer-logos">
+                <img src="../../assets/footer-icons/location.png" />
+                <p>שוהם 5, רמת גן</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- footer-bottom -->
+
+    <section>
+        <div class="footer-bottom-container">
+            <p>כל הזכויות שמורות לגל לביא</p>
+            <p>Gal Lavi 2022</p>
+        </div>
+    </section>
+
+</footer>
+
+</html>
